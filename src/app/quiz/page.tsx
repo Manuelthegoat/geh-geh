@@ -72,8 +72,8 @@ export default function QuizPage() {
           <p
             style={{
               marginTop: "1.5rem",
-              fontSize: "0.9rem",
-              color: "#777",
+              fontSize: "0.7rem",
+              color: "#fff",
             }}
           >
             made with love by <strong>emmasavageboy</strong>
