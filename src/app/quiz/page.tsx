@@ -1,8 +1,9 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import useQuiz from "@/hooks/useQuiz";
 import { QUESTIONS, PERSONALITY_TYPES } from "@/lib/constants";
 import styles from "../Quiz.module.css";
-import { useState, useEffect } from "react";  // Add this import
 
 export default function QuizPage() {
   const {
@@ -11,37 +12,51 @@ export default function QuizPage() {
     personalityTraits,
     progress,
     answers,
+    resetQuiz,
+    totalQuestions,
   } = useQuiz(QUESTIONS);
-  const pickedDavido = answers[2] === 2; // Question 2, Davido has value 2
-  const [randomMessage, setRandomMessage] = useState("");  // Add this state
 
-  // Add this useEffect to set a random message when pickedDavido is true
+  const pickedDavido = answers[2] === 2; // Q2: Davido has value 2
+  const [randomMessage, setRandomMessage] = useState("");
+
   useEffect(() => {
     if (pickedDavido) {
-      const messages = [
-        "Davido??? Really???",
-        "Wizkid is the GOAT!",
-        "Wizkid >>>"
-      ];
-      const randomIndex = Math.floor(Math.random() * messages.length);
-      setRandomMessage(messages[randomIndex]);
+      const messages = ["Davido??? Really???", "Wizkid is the GOAT!", "Wizkid >>>"];
+      setRandomMessage(messages[Math.floor(Math.random() * messages.length)]);
+    } else {
+      setRandomMessage("");
     }
   }, [pickedDavido]);
 
   const getResult = () => {
-    const dominantTrait = Object.entries(personalityTraits).reduce(
-      (max, [trait, count]) => (count > max.count ? { trait, count } : max),
-      { trait: "", count: 0 }
-    );
-
-    return (
-      PERSONALITY_TYPES[dominantTrait.trait] || {
+    // Find the canonical trait with the highest count
+    const entries = Object.entries(personalityTraits) as [keyof typeof PERSONALITY_TYPES, number][];
+    if (entries.length === 0) {
+      return {
         name: "Music Lover",
         description: "You have a unique and diverse taste in music!",
-      }
+      };
+    }
+
+    // Tie-breaker: if counts tie, prefer the one that appears first in PERSONALITY_TYPES order
+    const orderedKeys = Object.keys(PERSONALITY_TYPES) as (keyof typeof PERSONALITY_TYPES)[];
+    const top = entries.reduce(
+      (best, [trait, count]) => {
+        if (count > best.count) return { trait, count };
+        if (count === best.count) {
+          return orderedKeys.indexOf(trait) < orderedKeys.indexOf(best.trait)
+            ? { trait, count }
+            : best;
+        }
+        return best;
+      },
+      { trait: orderedKeys[0], count: -1 }
     );
+
+    return PERSONALITY_TYPES[top.trait];
   };
 
+  // Finished: no current question -> show result
   if (!currentQuestion) {
     const result = getResult();
     return (
@@ -50,32 +65,18 @@ export default function QuizPage() {
           <h1 className={styles.resultTitle}>Your Music Personality:</h1>
           <h2 className={styles.resultName}>{result.name}</h2>
           <p className={styles.resultDesc}>{result.description}</p>
+
           {pickedDavido && (
-            <p
-              style={{
-                marginTop: "1rem",
-                color: "#ff4d4f",
-                fontWeight: "bold",
-              }}
-            >
+            <p style={{ marginTop: "1rem", color: "#ff4d4f", fontWeight: "bold" }}>
               {randomMessage}
             </p>
           )}
 
-          <button
-            onClick={() => window.location.reload()}
-            className={styles.retakeBtn}
-          >
+          <button onClick={resetQuiz} className={styles.retakeBtn}>
             Retake Quiz
           </button>
 
-          <p
-            style={{
-              marginTop: "1.5rem",
-              fontSize: "0.7rem",
-              color: "#fff",
-            }}
-          >
+          <p style={{ marginTop: "1.5rem", fontSize: "0.7rem", color: "#fff" }}>
             made with love by <strong>emmasavageboy</strong>
           </p>
         </div>
@@ -83,19 +84,17 @@ export default function QuizPage() {
     );
   }
 
+  // In-progress
   return (
     <div className={styles.main}>
       <div className={styles.card}>
         {/* Progress */}
         <div className={styles.progressWrap}>
           <div className={styles.progressLabel}>
-            Question {currentQuestion.id}/{QUESTIONS.length}
+            Question {currentQuestion.id}/{totalQuestions}
           </div>
           <div className={styles.progressBar}>
-            <div
-              className={styles.progressFill}
-              style={{ width: `${progress}%` }}
-            ></div>
+            <div className={styles.progressFill} style={{ width: `${progress}%` }} />
           </div>
         </div>
 

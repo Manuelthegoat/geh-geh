@@ -4,10 +4,136 @@ export type Question = {
   options: {
     value: number;
     label: string;
-    personalityTrait: string[]; // Traits this option contributes to
+    personalityTrait: string[]; // raw traits (synonyms allowed)
   }[];
 };
 
+// Personality type definitions - Naija Gen Z edition (canonical keys only)
+export const PERSONALITY_TYPES = {
+  energetic: {
+    name: "The Party Plug",
+    description:
+      "You bring the energy everywhere you go — whether it’s an Faaji, beach party, Rave, or random Tuesday night groove.",
+  },
+  calm: {
+    name: "The Chill Pill",
+    description:
+      "Nothing shakes you. You’re the playlist people play when they just want to vibe in peace.",
+  },
+  analytical: {
+    name: "The Beat Professor",
+    description:
+      "You hear every snare, every bassline, every hidden harmony — music to you is science and art in one.",
+  },
+  emotional: {
+    name: "The Feelz Merchant",
+    description:
+      "Every song is a whole movie in your head. You connect deeply with lyrics and melodies.",
+  },
+  social: {
+    name: "The Vibe Connector",
+    description:
+      "You use music to bring people together — if you’re in the room, nobody’s feeling left out.",
+  },
+  introverted: {
+    name: "The Lowkey Viber",
+    description:
+      "You enjoy your jams in private — your playlist is a treasure chest only a few people get access to.",
+  },
+  eclectic: {
+    name: "The Genre Wanderer",
+    description:
+      "Afrobeats today, rock tomorrow, Fuji on Friday — your music taste is pure adventure.",
+  },
+  nostalgic: {
+    name: "The Throwback Chief",
+    description:
+      "Old school bangers are your comfort zone — from Plantashun Boiz to Styl-Plus, you keep the classics alive.",
+  },
+  playful: {
+    name: "The Groove Joker",
+    description:
+      "You’re all about fun beats, sing-alongs, and songs that make everyone laugh or dance silly.",
+  },
+  thoughtful: {
+    name: "The Lyric Curator",
+    description:
+      "You pay attention to words — every song you love has meaning and depth.",
+  },
+  private: {
+    name: "The Secret Playlist Holder",
+    description:
+      "Your music is personal. You don’t just share songs — you share pieces of your soul.",
+  },
+  creative: {
+    name: "The Sound Innovator",
+    description:
+      "You love unique sounds and out-of-the-box beats — you’d make a mad producer.",
+  },
+  bold: {
+    name: "The Main Character",
+    description:
+      "Your taste is loud, proud, and unapologetic — you play what you like, not what’s trending.",
+  },
+} as const;
+
+export type CanonicalTrait = keyof typeof PERSONALITY_TYPES;
+
+// Map raw option traits to canonical keys above
+export const TRAIT_ALIASES: Record<string, CanonicalTrait> = {
+  // energetic family
+  energetic: "energetic",
+  extroverted: "energetic",
+  enthusiastic: "energetic",
+  physical: "energetic",
+
+  // calm / introversion family
+  calm: "calm",
+  introverted: "introverted",
+  reserved: "calm",
+  cool: "calm",
+
+  // thinking / feels
+  analytical: "analytical",
+  critical: "analytical",
+  thoughtful: "thoughtful",
+  emotional: "emotional",
+  sensitive: "emotional",
+  romantic: "emotional",
+  organized: "thoughtful",
+
+  // social/sharing/connect
+  social: "social",
+  sharing: "social",
+  connective: "social",
+  streetwise: "social",
+
+  // individuality/creativity/bold
+  playful: "playful",
+  funny: "playful",
+  creative: "creative",
+  unique: "creative",
+  innovative: "creative",
+  musical: "creative",
+  bold: "bold",
+  opinionated: "bold",
+  trendy: "bold",
+  independent: "bold",
+
+  // variety / nostalgia
+  eclectic: "eclectic",
+  spontaneous: "eclectic",
+  open: "eclectic",
+  adaptive: "eclectic",
+  nostalgic: "nostalgic",
+  consistent: "nostalgic",
+
+  // privacy / reflection
+  private: "private",
+  introspective: "introverted",
+};
+
+// === Your questions (unchanged) ===
 export const QUESTIONS: Question[] = [
   {
     id: 1,
@@ -81,7 +207,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 8,
-    text: "You’re at an Party, and the DJ drops your song:",
+    text: "You’re at a Party, and the DJ drops your song:",
     options: [
       { value: 1, label: "Run to the dance floor immediately", personalityTrait: ["energetic", "playful"] },
       { value: 2, label: "Smile & nod along", personalityTrait: ["calm", "reserved"] },
@@ -110,62 +236,3 @@ export const QUESTIONS: Question[] = [
     ],
   },
 ];
-
-// Personality types remain same as before or can be expanded with more Nigerian-flavored ones.
-
-// Personality type definitions
-// Personality type definitions - Naija Gen Z edition
-export const PERSONALITY_TYPES: Record<string, { name: string; description: string }> = {
-  energetic: {
-    name: "The Party Plug",
-    description: "You bring the energy everywhere you go — whether it’s an Faaji, beach party, Rave, or random Tuesday night groove."
-  },
-  calm: {
-    name: "The Chill Pill",
-    description: "Nothing shakes you. You’re the playlist people play when they just want to vibe in peace."
-  },
-  analytical: {
-    name: "The Beat Professor",
-    description: "You hear every snare, every bassline, every hidden harmony — music to you is science and art in one."
-  },
-  emotional: {
-    name: "The Feelz Merchant",
-    description: "Every song is a whole movie in your head. You connect deeply with lyrics and melodies."
-  },
-  social: {
-    name: "The Vibe Connector",
-    description: "You use music to bring people together — if you’re in the room, nobody’s feeling left out."
-  },
-  introverted: {
-    name: "The Lowkey Viber",
-    description: "You enjoy your jams in private — your playlist is a treasure chest only a few people get access to."
-  },
-  eclectic: {
-    name: "The Genre Wanderer",
-    description: "Afrobeats today, rock tomorrow, Fuji on Friday — your music taste is pure adventure."
-  },
-  nostalgic: {
-    name: "The Throwback Chief",
-    description: "Old school bangers are your comfort zone — from Plantashun Boiz to Styl-Plus, you keep the classics alive."
-  },
-  playful: {
-    name: "The Groove Joker",
-    description: "You’re all about fun beats, sing-alongs, and songs that make everyone laugh or dance silly."
-  },
-  thoughtful: {
-    name: "The Lyric Curator",
-    description: "You pay attention to words — every song you love has meaning and depth."
-  },
-  private: {
-    name: "The Secret Playlist Holder",
-    description: "Your music is personal. You don’t just share songs — you share pieces of your soul."
-  },
-  creative: {
-    name: "The Sound Innovator",
-    description: "You love unique sounds and out-of-the-box beats — you’d make a mad producer."
-  },
-  bold: {
-    name: "The Main Character",
-    description: "Your taste is loud, proud, and unapologetic — you play what you like, not what’s trending."
-  }
-};

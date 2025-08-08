@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Question } from "../lib/constants";
+import type { Question, CanonicalTrait } from "@/lib/constants";
+import { PERSONALITY_TYPES, TRAIT_ALIASES } from "@/lib/constants";
 
 type QuizState = {
   currentQuestionIndex: number;
   answers: Record<number, number>; // { questionId: selectedOptionValue }
-  personalityTraits: Record<string, number>; // { trait: count }
+  personalityTraits: Partial<Record<CanonicalTrait, number>>; // canonical counts
 };
 
 export default function useQuiz(questions: Question[]) {
@@ -14,30 +15,41 @@ export default function useQuiz(questions: Question[]) {
     personalityTraits: {},
   });
 
-  const currentQuestion = questions[quizState.currentQuestionIndex];
-  const isLastQuestion = quizState.currentQuestionIndex === questions.length - 1;
+  const currentQuestion =
+    quizState.currentQuestionIndex < questions.length
+      ? questions[quizState.currentQuestionIndex]
+      : undefined;
+
+  const isLastQuestion =
+    quizState.currentQuestionIndex === questions.length - 1;
 
   const submitAnswer = (selectedOptionValue: number) => {
+    if (!currentQuestion) return;
+
     const selectedOption = currentQuestion.options.find(
       (opt) => opt.value === selectedOptionValue
     );
+    if (!selectedOption) return;
 
-    // Update personality traits
+    // Normalize traits to canonical keys before counting
     const updatedTraits = { ...quizState.personalityTraits };
-    selectedOption?.personalityTrait.forEach((trait) => {
-      updatedTraits[trait] = (updatedTraits[trait] || 0) + 1;
-    });
+    for (const raw of selectedOption.personalityTrait) {
+      const canonical = (TRAIT_ALIASES[raw] ?? raw) as CanonicalTrait;
+      if (canonical in PERSONALITY_TYPES) {
+        updatedTraits[canonical] = (updatedTraits[canonical] ?? 0) + 1;
+      }
+      // Unknown traits are ignored
+    }
 
-    // Update quiz state
-    setQuizState({
-      ...quizState,
+    // Advance
+    setQuizState((prev) => ({
+      currentQuestionIndex: prev.currentQuestionIndex + 1,
       answers: {
-        ...quizState.answers,
+        ...prev.answers,
         [currentQuestion.id]: selectedOptionValue,
       },
       personalityTraits: updatedTraits,
-      currentQuestionIndex: quizState.currentQuestionIndex + 1,
-    });
+    }));
   };
 
   const resetQuiz = () => {
@@ -48,6 +60,10 @@ export default function useQuiz(questions: Question[]) {
     });
   };
 
+  const progress = Math.round(
+    (quizState.currentQuestionIndex / questions.length) * 100
+  );
+
   return {
     currentQuestion,
     isLastQuestion,
@@ -55,6 +71,7 @@ export default function useQuiz(questions: Question[]) {
     resetQuiz,
     personalityTraits: quizState.personalityTraits,
     answers: quizState.answers,
-    progress: Math.round((quizState.currentQuestionIndex / questions.length) * 100),
+    progress,
+    totalQuestions: questions.length,
   };
 }
