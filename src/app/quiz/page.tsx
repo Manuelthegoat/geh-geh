@@ -69,7 +69,6 @@ export default function QuizPage() {
             Retake Quiz
           </button>
 
-          {/* Text inside card */}
           <p
             style={{
               marginTop: "1.5rem",
