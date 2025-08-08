@@ -1,0 +1,60 @@
+/* app/Home.module.css */
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 44rem; /* ~704px */
+  text-align: center;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.title {
+  font-family: 'Nove', serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.75rem 0;
+}
+
+.lead {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  opacity: 0.9;
+  margin: 0 0 2rem 0;
+}
+
+.cta {
+  display: block;
+  width: 100%;
+  appearance: none;
+  border: none;
+  text-decoration: none;
+  background: var(--cta);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.125rem; /* 18px */
+  box-shadow: 0 12px 24px rgba(139, 92, 246, 0.35);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.cta:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(124, 58, 237, 0.45);
+}
+
+.cta:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(124, 58, 237, 0.35);
+}
