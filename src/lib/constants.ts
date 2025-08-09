@@ -130,7 +130,7 @@ export const TRAIT_ALIASES: Record<string, CanonicalTrait> = {
 
   // privacy / reflection
   private: "private",
-  introspective: "introverted",
+  introspective: "private",
 };
 
 // === Your questions (unchanged) ===
@@ -207,7 +207,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 8,
-    text: "You’re at a Party, and the DJ drops your song:",
+    text: "You’re at a party, and the DJ drops your song:",
     options: [
       { value: 1, label: "Run to the dance floor immediately", personalityTrait: ["energetic", "playful"] },
       { value: 2, label: "Smile & nod along", personalityTrait: ["calm", "reserved"] },
@@ -235,4 +235,55 @@ export const QUESTIONS: Question[] = [
       { value: 4, label: "Cafe or park, peaceful vibes", personalityTrait: ["calm", "thoughtful"] },
     ],
   },
+  {
+    id: 11,
+    text: "Your dream music job is:",
+    options: [
+      { value: 1, label: "Concert hype MC", personalityTrait: ["energetic", "bold"] },
+      { value: 2, label: "Sound engineer", personalityTrait: ["analytical", "creative"] },
+      { value: 3, label: "Radio host", personalityTrait: ["social", "playful"] },
+      { value: 4, label: "Songwriter", personalityTrait: ["thoughtful", "emotional"] },
+    ],
+  },
+  {
+    id: 12,
+    text: "Pick a fashion style for a concert:",
+    options: [
+      { value: 1, label: "Flashy streetwear", personalityTrait: ["bold", "innovative"] },
+      { value: 2, label: "Simple but classy", personalityTrait: ["calm", "nostalgic"] },
+      { value: 3, label: "Experimental and unique", personalityTrait: ["creative", "eclectic"] },
+      { value: 4, label: "Whatever’s comfy", personalityTrait: ["introverted", "thoughtful"] },
+    ],
+  },
+  {
+    id: 13,
+    text: "You’re making a playlist for a road trip:",
+    options: [
+      { value: 1, label: "Bangers only — no skips", personalityTrait: ["energetic", "playful"] },
+      { value: 2, label: "Smooth and calm vibes", personalityTrait: ["calm", "emotional"] },
+      { value: 3, label: "Mix of old and new", personalityTrait: ["nostalgic", "eclectic"] },
+      { value: 4, label: "Lyrics that tell a story", personalityTrait: ["thoughtful", "analytical"] },
+    ],
+  },
+  {
+    id: 14,
+    text: "Your ideal hangout spot:",
+    options: [
+      { value: 1, label: "Beach party", personalityTrait: ["energetic", "social"] },
+      { value: 2, label: "Chill café", personalityTrait: ["calm", "thoughtful"] },
+      { value: 3, label: "Music studio", personalityTrait: ["creative", "innovative"] },
+      { value: 4, label: "Home with my headphones", personalityTrait: ["introverted", "private"] },
+    ],
+  },
+  {
+    id: 15,
+    text: "If you could headline an event, it would be:",
+    options: [
+      { value: 1, label: "Massive stadium concert", personalityTrait: ["bold", "energetic"] },
+      { value: 2, label: "Exclusive intimate show", personalityTrait: ["calm", "private"] },
+      { value: 3, label: "Experimental art music fest", personalityTrait: ["creative", "eclectic"] },
+      { value: 4, label: "Classic throwback night", personalityTrait: ["nostalgic", "thoughtful"] },
+    ],
+  },
 ];
+
