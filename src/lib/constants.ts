@@ -111,7 +111,7 @@ export const QUESTIONS: Question[] = [
     options: [
       { value: 1, label: "Book ride one‑way, meet halfway", personalityTrait: ["opuehnology"] },
       { value: 2, label: "Send exact fare, screenshot remain", personalityTrait: ["finance"] },
-      { value: 3, label: "Suggest midpoint date: café + bus stop", personalityTrait: ["wisdom"] },
+      { value: 3, label: "Why i go give girl wey no be my babe transport?", personalityTrait: ["wisdom"] },
       { value: 4, label: "Tell am ‘collect on arrival’ — if she no come, case close", personalityTrait: ["wicked"] },
     ],
   },
