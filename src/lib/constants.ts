@@ -107,7 +107,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 4,
-    text: "She say “Transport me first” before link.",
+    text: "She say “Pay for my transport” before link.",
     options: [
       { value: 1, label: "Book ride one‑way, meet halfway", personalityTrait: ["opuehnology"] },
       { value: 2, label: "Send exact fare, screenshot remain", personalityTrait: ["finance"] },
@@ -145,7 +145,7 @@ export const QUESTIONS: Question[] = [
     options: [
       { value: 1, label: "Send small data + joke, watch response", personalityTrait: ["wisdom"] },
       { value: 2, label: "Transfer exact 2k once — case closed", personalityTrait: ["finance"] },
-      { value: 3, label: "Divert gist to link plan with low spend", personalityTrait: ["opuehnology"] },
+      { value: 3, label: "Divert gist to linkup plan", personalityTrait: ["opuehnology"] },
       { value: 4, label: "Pray emoji + mute 1 week", personalityTrait: ["wicked"] },
     ],
   },
@@ -153,10 +153,10 @@ export const QUESTIONS: Question[] = [
     id: 8,
     text: "Bill land for table, your default?",
     options: [
-      { value: 1, label: "Suggest split coded — equality narrative", personalityTrait: ["finance"] },
-      { value: 2, label: "Pay for drinks, she handle dessert", personalityTrait: ["wisdom"] },
-      { value: 3, label: "I cover today, you plan next link", personalityTrait: ["opuehnology"] },
-      { value: 4, label: "‘POS no dey read’ — relocate quickly", personalityTrait: ["wicked"] },
+      { value: 1, label: "Suggest split coded ", personalityTrait: ["finance"] },
+      { value: 2, label: "Pay for drinks, she handle food", personalityTrait: ["wisdom"] },
+      { value: 3, label: "I cover today, you plan next meet", personalityTrait: ["opuehnology"] },
+      { value: 4, label: "‘POS no dey read’ — MIAW (relocate) quickly", personalityTrait: ["wicked"] },
     ],
   },
 
