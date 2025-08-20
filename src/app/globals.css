@@ -1,4 +1,4 @@
-/* app/globals.css */
+/* src/app/globals.css */
 @font-face {
   font-family: 'Nove';
   src: url('/fonts/Nove.otf') format('opentype');
@@ -16,12 +16,19 @@
 }
 
 :root {
-  --bg-start: #6b21a8; /* purple-800 */
-  --bg-end: #312e81;   /* indigo-900 */
-  --glass: rgba(255,255,255,0.1);
-  --text: #ffffff;
-  --cta: #8b5cf6;      /* purple-500 */
-  --cta-hover: #7c3aed;/* purple-600 */
+  /* Neon-night palette */
+  --bg-start: #0f172a;  /* slate-900 */
+  --bg-end: #0b1020;    /* deep navy */
+  --glass: rgba(255,255,255,0.06);
+  --text: #e5e7eb;      /* zinc-200 */
+  --text-dim: #c7cad1;
+
+  /* Accents */
+  --cta: #22d3ee;        /* cyan-400 */
+  --cta-hover: #06b6d4;  /* cyan-500 */
+  --grad-a: #22d3ee;     /* cyan */
+  --grad-b: #a78bfa;     /* violet-400 */
+  --warn: #f59e0b;       /* amber-500 */
 }
 
 * { box-sizing: border-box; }
@@ -31,7 +38,9 @@ html, body {
   margin: 0;
   padding: 0;
   color: var(--text);
-  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(34,211,238,0.08), transparent 60%),
+              radial-gradient(1000px 700px at 90% 20%, rgba(167,139,250,0.08), transparent 60%),
+              linear-gradient(135deg, var(--bg-start), var(--bg-end));
   font-family: 'Satoshi', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,10 +1,10 @@
-// app/layout.tsx
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Music Personality",
-  description: "Quiz",
+  title: "GehGeh University",
+  description: "Find your GehGeh course. Stay woke, avoid invoice romance.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

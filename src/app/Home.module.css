@@ -1,4 +1,4 @@
-/* app/Home.module.css */
+/* src/app/Home.module.css */
 .main {
   min-height: 100vh;
   display: flex;
@@ -9,52 +9,56 @@
 
 .card {
   width: 100%;
-  max-width: 44rem; /* ~704px */
+  max-width: 44rem;
   text-align: center;
   background: var(--glass);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
   padding: 3rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .title {
   font-family: 'Nove', serif;
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
   letter-spacing: 0.02em;
   margin: 0 0 0.75rem 0;
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .lead {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  opacity: 0.9;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-dim);
   margin: 0 0 2rem 0;
 }
 
 .cta {
-  display: block;
-  width: 100%;
+  display: inline-block;
   appearance: none;
-  border: none;
   text-decoration: none;
   background: var(--cta);
-  color: #fff;
-  padding: 1rem 2rem;
+  color: #00141a;
+  padding: 0.9rem 1.6rem;
   border-radius: 999px;
-  font-weight: 600;
-  font-size: 1.125rem; /* 18px */
-  box-shadow: 0 12px 24px rgba(139, 92, 246, 0.35);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  box-shadow: 0 10px 30px rgba(34,211,238,0.3);
   transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  border: 0;
 }
 
 .cta:hover {
   background: var(--cta-hover);
   transform: translateY(-2px);
-  box-shadow: 0 16px 28px rgba(124, 58, 237, 0.45);
+  box-shadow: 0 14px 34px rgba(6,182,212,0.35);
 }
 
 .cta:active {
   transform: translateY(0);
-  box-shadow: 0 8px 18px rgba(124, 58, 237, 0.35);
+  box-shadow: 0 8px 18px rgba(6,182,212,0.25);
 }

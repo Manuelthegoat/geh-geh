@@ -1,45 +1,39 @@
+// src/app/quiz/page.tsx
 "use client";
 
-import { useEffect, useState } from "react";
 import useQuiz from "@/hooks/useQuiz";
-import { QUESTIONS, PERSONALITY_TYPES } from "@/lib/constants";
+import { QUESTIONS, COURSES } from "@/lib/constants";
 import styles from "../Quiz.module.css";
 
 export default function QuizPage() {
   const {
     currentQuestion,
     submitAnswer,
+    goBack,
+    resetQuiz,
     personalityTraits,
     progress,
-    answers,
-    resetQuiz,
     totalQuestions,
+    selectedValue,
+    isFirstQuestion,
   } = useQuiz(QUESTIONS);
 
-  const pickedDavido = answers[2] === 2; // Q2: Davido has value 2
-  const [randomMessage, setRandomMessage] = useState("");
-
-  useEffect(() => {
-    if (pickedDavido) {
-      const messages = ["Davido??? Really???", "Wizkid is the GOAT!", "Wizkid >>>"];
-      setRandomMessage(messages[Math.floor(Math.random() * messages.length)]);
-    } else {
-      setRandomMessage("");
-    }
-  }, [pickedDavido]);
-
   const getResult = () => {
-    // Find the canonical trait with the highest count
-    const entries = Object.entries(personalityTraits) as [keyof typeof PERSONALITY_TYPES, number][];
+    const entries = Object.entries(personalityTraits) as [
+      keyof typeof COURSES,
+      number
+    ][];
+
     if (entries.length === 0) {
       return {
-        name: "Music Lover",
-        description: "You have a unique and diverse taste in music!",
+        name: "Dept. of Undeclared Studies",
+        description:
+          "Admission pending. Go back and answer like person wey dey woke.",
       };
     }
 
-    // Tie-breaker: if counts tie, prefer the one that appears first in PERSONALITY_TYPES order
-    const orderedKeys = Object.keys(PERSONALITY_TYPES) as (keyof typeof PERSONALITY_TYPES)[];
+    // Tie-breaker: keep the first-defined course if counts tie
+    const orderedKeys = Object.keys(COURSES) as (keyof typeof COURSES)[];
     const top = entries.reduce(
       (best, [trait, count]) => {
         if (count > best.count) return { trait, count };
@@ -53,30 +47,24 @@ export default function QuizPage() {
       { trait: orderedKeys[0], count: -1 }
     );
 
-    return PERSONALITY_TYPES[top.trait];
+    return COURSES[top.trait];
   };
 
-  // Finished: no current question -> show result
+  // Finished: when index has moved past the last question, currentQuestion is undefined
   if (!currentQuestion) {
     const result = getResult();
     return (
       <div className={styles.main}>
         <div className={styles.card} style={{ textAlign: "center" }}>
-          <h1 className={styles.resultTitle}>Your Music Personality:</h1>
+          <h1 className={styles.resultTitle}>Your GehGeh Course:</h1>
           <h2 className={styles.resultName}>{result.name}</h2>
           <p className={styles.resultDesc}>{result.description}</p>
 
-          {pickedDavido && (
-            <p style={{ marginTop: "1rem", color: "#ff4d4f", fontWeight: "bold" }}>
-              {randomMessage}
-            </p>
-          )}
-
           <button onClick={resetQuiz} className={styles.retakeBtn}>
-            Retake Quiz
+            Retake Test
           </button>
 
-          <p style={{ marginTop: "1.5rem", fontSize: "0.7rem", color: "#fff" }}>
+          <p style={{ marginTop: "1.25rem", fontSize: "0.8rem", opacity: 0.9 }}>
             made with love by <strong>emmasavageboy</strong>
           </p>
         </div>
@@ -84,7 +72,6 @@ export default function QuizPage() {
     );
   }
 
-  // In-progress
   return (
     <div className={styles.main}>
       <div className={styles.card}>
@@ -103,23 +90,52 @@ export default function QuizPage() {
 
         {/* Options */}
         <div className={styles.options}>
-          {currentQuestion.options.map((option) => (
-            <button
-              key={option.value}
-              onClick={() => submitAnswer(option.value)}
-              className={styles.optionBtn}
-            >
-              {option.label}
-            </button>
-          ))}
+          {currentQuestion.options.map((option) => {
+            const isSelected = selectedValue === option.value;
+            return (
+              <button
+                key={option.value}
+                onClick={() => submitAnswer(option.value)}
+                className={styles.optionBtn}
+                aria-pressed={isSelected}
+                style={
+                  isSelected
+                    ? {
+                        borderColor: "rgba(255,255,255,0.5)",
+                        backgroundColor: "rgba(255,255,255,0.08)",
+                      }
+                    : undefined
+                }
+              >
+                {option.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Nav buttons */}
+        <div style={{ display: "flex", gap: "0.75rem", marginTop: "1rem" }}>
+          <button
+            onClick={goBack}
+            disabled={isFirstQuestion}
+            className={styles.retakeBtn}
+            style={{
+              background: "transparent",
+              color: "var(--text)",
+              border: "1px solid rgba(255,255,255,0.25)",
+              opacity: isFirstQuestion ? 0.5 : 1,
+            }}
+          >
+            ← Previous
+          </button>
         </div>
 
         <p
           style={{
-            marginTop: "1.5rem",
-            fontSize: "0.9rem",
-            color: "#fff",
+            marginTop: "1.25rem",
+            fontSize: "0.85rem",
             textAlign: "center",
+            opacity: 0.9,
           }}
         >
           made with love by <strong>emmasavageboy</strong>
