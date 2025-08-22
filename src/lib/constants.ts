@@ -70,223 +70,245 @@ export const TRAIT_ALIASES: Record<string, CanonicalTrait> = {
   vagina: "toto",
 };
 
-// === 20 GehGeh University Questions (Pidgin, billing-dodge + affairs-with-sense) ===
+// === GehGeh University Questions (Relationship Economics & Financial Psychology) ===
 export const QUESTIONS: Question[] = [
-  // Admissions / Entry Logic
+  // 1) “Training a woman in school” economics
   {
     id: 1,
-    text: "First link‑up plan wey no go finish your pocket?",
+    text: "According to Geh Geh, ‘training woman for school’ na wetin?",
     options: [
-      { value: 1, label: "Movie night for my crib — lights low", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Walk + suya budget, no wahala", personalityTrait: ["finance"] },
-      { value: 3, label: "Public spot for safety, talk first", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Gym together — test stamina first", personalityTrait: ["pounding"] },
+      { value: 1, label: "Long‑term investment with risky ROI", personalityTrait: ["finance"] },
+      { value: 2, label: "Potential financial scam if expectation no align", personalityTrait: ["wisdom"] },
+      { value: 3, label: "Act of love but do am with boundary & receipts", personalityTrait: ["opuehnology"] },
+      { value: 4, label: "Do am only if e enter market terms (TOTO‑currency)", personalityTrait: ["toto"] },
     ],
   },
+
+  // 2) “Buy keke for her papa” vs sponsoring her
   {
     id: 2,
-    text: "She yarn “I no too like outside; come over with small tins.”",
+    text: "Geh Geh talk say buy keke for her papa fit better pass:",
     options: [
-      { value: 1, label: "Pull up with snacks + vibes, keep logistics tight", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Ask wetin exactly she need — no overbuy", personalityTrait: ["finance"] },
-      { value: 3, label: "Confirm consent + boundaries clearly", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Carry speaker + playlist for cardio", personalityTrait: ["pounding"] },
+      { value: 1, label: "Pay full university fees wey no get agreement", personalityTrait: ["finance"] },
+      { value: 2, label: "Carry am abroad without plan/ROI", personalityTrait: ["wisdom"] },
+      { value: 3, label: "Build house for babe wey una never define future", personalityTrait: ["wicked"] },
+      { value: 4, label: "Start random business with am with no contract", personalityTrait: ["finance"] },
     ],
   },
 
-  // Relationship / Billing Traps
+  // 3) Relationship as Employment
   {
     id: 3,
-    text: "Babe: “If you love me, do something.” Your SOP?",
+    text: "‘Relationship as Employment’ best describe:",
     options: [
-      { value: 1, label: "Plan coded chill — love language + timing", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Do within budget or nothing", personalityTrait: ["finance"] },
-      { value: 3, label: "Ask wetin ‘something’ mean — define am", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Shift am with cruise till topic die", personalityTrait: ["wicked"] },
+      { value: 1, label: "Dating mainly for financial support/salary vibes", personalityTrait: ["toto"] },
+      { value: 2, label: "Couples dey share bills equally", personalityTrait: ["finance"] },
+      { value: 3, label: "Love dey completely free of money talk", personalityTrait: ["wisdom"] },
+      { value: 4, label: "Men refuse to spend at all", personalityTrait: ["wicked"] },
     ],
   },
+
+  // 4) Marriage classification
   {
     id: 4,
-    text: "She say “Pay for my transport” before link.",
+    text: "For Geh Geh syllabus, marriage fit be:",
     options: [
-      { value: 1, label: "Book ride one‑way, meet halfway", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Send exact fare, screenshot remain", personalityTrait: ["finance"] },
-      { value: 3, label: "Why i go give girl wey no be my babe transport?", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Tell am ‘collect on arrival’ — if she no come, case close", personalityTrait: ["wicked"] },
+      { value: 1, label: "Financial scam if terms no clear & pressure high", personalityTrait: ["wisdom"] },
+      { value: 2, label: "Good investment if values & budgets align", personalityTrait: ["finance"] },
+      { value: 3, label: "Religious duty — but still need receipts/boundary", personalityTrait: ["opuehnology"] },
+      { value: 4, label: "Partnership of equals with role clarity", personalityTrait: ["wisdom"] },
     ],
   },
 
-  // GehGeh Signals
+  // 5) Women in “our fathers’ time”
   {
     id: 5,
-    text: "Green flag wey dey show say gist fit enter practical?",
+    text: "Women for ‘our fathers’ time’ according to Geh Geh:",
     options: [
-      { value: 1, label: "She match your flirting energy coded", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "She respect budget talk, no entitlement", personalityTrait: ["finance"] },
-      { value: 3, label: "She dey clear about consent & safety", personalityTrait: ["wisdom"] },
-      { value: 4, label: "She dey ask about stamina like joke", personalityTrait: ["pounding"] },
+      { value: 1, label: "Plenty provide/support household pass to‑day gist", personalityTrait: ["wisdom"] },
+      { value: 2, label: "Fully depend on men by default", personalityTrait: ["finance"] },
+      { value: 3, label: "Only marry rich men (selection bias)", personalityTrait: ["toto"] },
+      { value: 4, label: "Avoid financial responsibility entirely", personalityTrait: ["wicked"] },
     ],
   },
+
+  // 6) Bills strategy
   {
     id: 6,
-    text: "Red flag wey fit be TOTO‑currency alert:",
+    text: "Bill don land; wetin be relationship‑smart move?",
     options: [
-      { value: 1, label: "Every chat end with bill hint", personalityTrait: ["toto"] },
-      { value: 2, label: "Urgent 2k before first meet", personalityTrait: ["finance"] },
-      { value: 3, label: "‘No calls, only text’ + price talk", personalityTrait: ["toto"] },
-      { value: 4, label: "Emotional blackmail as budget tool", personalityTrait: ["wicked"] },
+      { value: 1, label: "Split coded — clear expectation, no entitlement", personalityTrait: ["finance"] },
+      { value: 2, label: "Today on me; next meet on you (document am)", personalityTrait: ["opuehnology"] },
+      { value: 3, label: "Set budget before you order anything, no drama", personalityTrait: ["wisdom"] },
+      { value: 4, label: "Disappear because 'I NO DEY PRESS MONEY!'", personalityTrait: ["wicked"] },
     ],
   },
 
-  // Money Sense
+  // 7) Sponsoring school: risk analysis
   {
     id: 7,
-    text: "Urgent 2k drop on day 2 of chatting:",
+    text: "If you wan sponsor babe education, first step:",
     options: [
-      { value: 1, label: "Send small data + joke, watch response", personalityTrait: ["wisdom"] },
-      { value: 2, label: "Transfer exact 2k once — case closed", personalityTrait: ["finance"] },
-      { value: 3, label: "Divert gist to linkup plan", personalityTrait: ["opuehnology"] },
-      { value: 4, label: "Pray emoji + mute 1 week", personalityTrait: ["wicked"] },
+      { value: 1, label: "Write terms: scope, amount, no‑guarantee of romance", personalityTrait: ["wisdom"] },
+      { value: 2, label: "Budget am well well incase she run away", personalityTrait: ["finance"] },
+      { value: 3, label: "Call am ‘investment in love’ only", personalityTrait: ["wicked"] },
+      { value: 4, label: "Bundle am with ‘relationship employment’ package", personalityTrait: ["toto"] },
     ],
   },
+
+  // 8) Transport ask before link
   {
     id: 8,
-    text: "Bill land for table, your default?",
+    text: "‘Send transport’ before first meet — your policy:",
     options: [
-      { value: 1, label: "Suggest split coded ", personalityTrait: ["finance"] },
-      { value: 2, label: "Pay for drinks, she handle food", personalityTrait: ["wisdom"] },
-      { value: 3, label: "I cover today, you plan next meet", personalityTrait: ["opuehnology"] },
-      { value: 4, label: "‘POS no dey read’ — MIAW (relocate) quickly", personalityTrait: ["wicked"] },
+      { value: 1, label: "I go come meet you for your house", personalityTrait: ["opuehnology"] },
+      { value: 2, label: "Send exact fare + you go send proof, no overbuy", personalityTrait: ["finance"] },
+      { value: 3, label: "If una never sure, postpone — safety & consent first", personalityTrait: ["wisdom"] },
+      { value: 4, label: "If she reach door, i go pay; if she no come, case close", personalityTrait: ["wicked"] },
     ],
   },
 
-  // Practical Ops (sex logistics)
+  // 9) TOTO‑currency tells
   {
     id: 9,
-    text: "Night text: “Pull up now.” How you package?",
+    text: "Which sign be clear TOTO‑currency indicator?",
     options: [
-      { value: 1, label: "Condoms + mint + wipes + alibi — coded ops", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Ask tomorrow better — 9‑to‑5 no gree", personalityTrait: ["wisdom"] },
-      { value: 3, label: "Bike go — no surge, no long talk", personalityTrait: ["finance"] },
-      { value: 4, label: "Warm‑up playlist + pre‑stretch", personalityTrait: ["pounding"] },
+      { value: 1, label: "Price list + ‘no calls, only text’", personalityTrait: ["toto"] },
+      { value: 2, label: "Every gist end with billing hint", personalityTrait: ["toto"] },
+      { value: 3, label: "Budget talk with fairness & plan", personalityTrait: ["finance"] },
+      { value: 4, label: "Consent checklist & boundaries", personalityTrait: ["wisdom"] },
     ],
   },
+
+  // 10) Relationship KPI
   {
     id: 10,
-    text: "Preferred course outline (bedroom theory):",
+    text: "Wetin go show say your relationship semester run smooth without wahala?",
     options: [
-      { value: 1, label: "Reading body language + timing", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Cost–benefit of dates vs results", personalityTrait: ["finance"] },
-      { value: 3, label: "Consent frameworks & safe words", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Angles, rhythm, endurance", personalityTrait: ["pounding"] },
+      { value: 1, label: "Quality links, zero scandal/receipt loss", personalityTrait: ["opuehnology"] },
+      { value: 2, label: "Spend ≤ 25% income on dates", personalityTrait: ["finance"] },
+      { value: 3, label: "All consent & safety frameworks passed", personalityTrait: ["wisdom"] },
+      { value: 4, label: "Endurance & recovery metrics improve", personalityTrait: ["pounding"] },
     ],
   },
 
-  // Creativity Faculty
+  // 11) Post‑link etiquette
   {
     id: 11,
-    text: "Innovation you go bring come practicals:",
+    text: "After link‑up, wetin keep door open legitimately?",
     options: [
-      { value: 1, label: "New positions with cushioning logic", personalityTrait: ["doggy"] },
-      { value: 2, label: "Roleplay with budget props", personalityTrait: ["finance"] },
-      { value: 3, label: "Set & setting psychology", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Coded playlist for tempo control", personalityTrait: ["opuehnology"] },
+      { value: 1, label: "‘You reach house? Thanks for today’ + light banter", personalityTrait: ["opuehnology"] },
+      { value: 2, label: "Note who paid; plan balanced next time", personalityTrait: ["finance"] },
+      { value: 3, label: "Consent debrief: what she like/what to change", personalityTrait: ["wisdom"] },
+      { value: 4, label: "Ask her 'When Next'", personalityTrait: ["pounding"] },
     ],
   },
+
+  // 12) Relationship as contract
   {
     id: 12,
-    text: "If ‘doggy’ enter syllabus, how you defend thesis?",
+    text: "She dey too bill for relationship; Wetin you go do?",
     options: [
-      { value: 1, label: "Talk biomechanics + safety", personalityTrait: ["doggy"] },
-      { value: 2, label: "Demonstrate pacing (PG rated) 😅", personalityTrait: ["pounding"] },
-      { value: 3, label: "Compare options, choose low‑injury angle", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Only on promo nights — budget first", personalityTrait: ["finance"] },
+      { value: 1, label: "Value‑for‑value: time, care, vibe — not salary", personalityTrait: ["wisdom"] },
+      { value: 2, label: "Experience‑based dates: low cost, high fun", personalityTrait: ["finance"] },
+      { value: 3, label: "Any pay na Knacks", personalityTrait: ["toto"] },
+      { value: 4, label: "Ignore all talks; operate ghost protocol", personalityTrait: ["wicked"] },
     ],
   },
 
-  // Wicked & Manipulation Dept
+  // 13) Jealousy hook
   {
     id: 13,
-    text: "She dey ghost small small but billing strong:",
+    text: "She wan use jealousy hold you; response?",
     options: [
-      { value: 1, label: "Mirror energy — reply next day", personalityTrait: ["wicked"] },
-      { value: 2, label: "Close tab; no ROI there", personalityTrait: ["finance"] },
-      { value: 3, label: "Ask direct: ‘Are we aligning?’", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Re‑spark with playful dare", personalityTrait: ["opuehnology"] },
+      { value: 1, label: "Ignore & maintain frame", personalityTrait: ["wisdom"] },
+      { value: 2, label: "Counter: ‘plan real link, no drama’", personalityTrait: ["opuehnology"] },
+      { value: 3, label: "Budget cut — drama no get allocation", personalityTrait: ["finance"] },
+      { value: 4, label: "Hype the imaginary rival to scatter script", personalityTrait: ["wicked"] },
     ],
   },
+
+  // 14) Urgent 2k early
   {
     id: 14,
-    text: "She wan use jealousy hook you:",
+    text: "Day‑2 ‘urgent 2k’ drop — wetin be Geh Geh method?",
     options: [
-      { value: 1, label: "Flip script: hype her imaginary rival", personalityTrait: ["wicked"] },
-      { value: 2, label: "Ignore, maintain frame", personalityTrait: ["wisdom"] },
-      { value: 3, label: "Counter‑offer: ‘plan real link, no drama’", personalityTrait: ["opuehnology"] },
-      { value: 4, label: "Budget cut — drama no get allocation", personalityTrait: ["finance"] },
+      { value: 1, label: "Send data + joke; observe pattern", personalityTrait: ["wisdom"] },
+      { value: 2, label: "Pay once; close tab if repeat", personalityTrait: ["finance"] },
+      { value: 3, label: "Divert gist to plan within budget", personalityTrait: ["opuehnology"] },
+      { value: 4, label: "Mute one week, energy mirror", personalityTrait: ["wicked"] },
     ],
   },
 
-  // TOTO‑currency / market talks
-  {
-    id: 15,
-    text: "She dey talk price & gifts steady:",
-    options: [
-      { value: 1, label: "Define boundaries, no transactional romance", personalityTrait: ["wisdom"] },
-      { value: 2, label: "Negotiate experience‑based dates, low spend", personalityTrait: ["finance"] },
-      { value: 3, label: "If e clear & consenting, run coded ops", personalityTrait: ["toto"] },
-      { value: 4, label: "Exit market — risk too high", personalityTrait: ["wicked"] },
-    ],
-  },
+  // 15) Roles then vs now (teaches comparison mindset)
+ {
+  id: 15,
+  text: "Compare women money-role now vs our papa time:",
+  options: [
+    { value: 1, label: "Now: man + woman dey hustle; Before: na man carry all", personalityTrait: ["wisdom"] },
+    { value: 2, label: "Now: dem dey share bills coded; Before: no clear formula", personalityTrait: ["finance"] },
+    { value: 3, label: "Now: consent & boundary talk dey loud; Before: e dey lowkey", personalityTrait: ["opuehnology"] },
+    { value: 4, label: "Before: na only rich men fit marry pass; Now: filter still dey small", personalityTrait: ["toto"] },
+  ],
+},
+
+  // 16) Safety/consent as curriculum
   {
     id: 16,
-    text: "You discover she dey measure you by ‘what you provide’:",
+    text: "Consent & safety for Geh Geh curriculum mean:",
     options: [
-      { value: 1, label: "Reframe: value for value — time, care, vibe", personalityTrait: ["wisdom"] },
-      { value: 2, label: "Low‑cost high‑fun dates only", personalityTrait: ["finance"] },
-      { value: 3, label: "Turn to strictly‑fun buddy arrangement", personalityTrait: ["opuehnology"] },
-      { value: 4, label: "Cut supply: scarcity strategy", personalityTrait: ["wicked"] },
+      { value: 1, label: "Define boundaries & safe words early", personalityTrait: ["wisdom"] },
+      { value: 2, label: "Read body language & timing coded", personalityTrait: ["opuehnology"] },
+      { value: 3, label: "Budget for secure transport/home return", personalityTrait: ["finance"] },
+      { value: 4, label: "Ignore; na cruise", personalityTrait: ["wicked"] },
     ],
   },
 
-  // Exams / Final Defense
+  // 17) Creative enjoyment policy (PG)
   {
     id: 17,
-    text: "Post‑link etiquette wey keep door open:",
+    text: "Creativity for enjoyment wey still respect pocket:",
     options: [
-      { value: 1, label: "Safe ride check + banter recap", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "‘Had fun, next time on me (budgeted)’", personalityTrait: ["finance"] },
-      { value: 3, label: "Consent debrief + what she prefer", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Gym emoji + stopwatch — improve stats", personalityTrait: ["pounding"] },
+      { value: 1, label: "Experience dates > expensive gifts", personalityTrait: ["finance"] },
+      { value: 2, label: "Setting psychology: light, music, comfort", personalityTrait: ["wisdom"] },
+      { value: 3, label: "Angles/tempo talk (PG), no injury", personalityTrait: ["pounding"] },
+      { value: 4, label: "Only when promo night dey 😅", personalityTrait: ["toto"] },
     ],
   },
+
+  // 18) Gifts & ROI
   {
     id: 18,
-    text: "If her friend shoot shot at you:",
+    text: "Gift policy for non‑exclusive stage:",
     options: [
-      { value: 1, label: "Coded decline — maintain access", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "No mix friend group — policy", personalityTrait: ["wisdom"] },
-      { value: 3, label: "Only if budget & drama = 0", personalityTrait: ["finance"] },
-      { value: 4, label: "Turn triangle to thesis defense 😅", personalityTrait: ["doggy"] },
+      { value: 1, label: "Small thoughtful, no big capex", personalityTrait: ["finance"] },
+      { value: 2, label: "Document expectation — gift no be contract", personalityTrait: ["wisdom"] },
+      { value: 3, label: "If gift = price list, categorize as TOTO‑currency", personalityTrait: ["toto"] },
+      { value: 4, label: "Do large gifts to ‘secure spot’", personalityTrait: ["wicked"] },
     ],
   },
+
+  // 19) Family economics (the keke logic generalized)
   {
     id: 19,
-    text: "Best KPI for your gehgeh semester:",
+    text: "If you must help family, smarter cashflow move:",
     options: [
-      { value: 1, label: "Quality links, zero scandals", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Spend < 25% income on dates", personalityTrait: ["finance"] },
-      { value: 3, label: "All consent‑checklists passed", personalityTrait: ["wisdom"] },
-      { value: 4, label: "PB on rounds & recovery", personalityTrait: ["pounding"] },
+      { value: 1, label: "Asset that dey spin daily income (e.g., keke)", personalityTrait: ["finance"] },
+      { value: 2, label: "One‑off cash dash without plan", personalityTrait: ["wicked"] },
+      { value: 3, label: "Training with written terms/milestones", personalityTrait: ["wisdom"] },
+      { value: 4, label: "Vibes & inshallah", personalityTrait: ["opuehnology"] },
     ],
   },
+
+  // 20) Capstone pick
   {
     id: 20,
-    text: "Choose your graduating project:",
+    text: "Graduating project for this course:",
     options: [
-      { value: 1, label: "Playbook of coded texts & timing", personalityTrait: ["opuehnology"] },
-      { value: 2, label: "Spreadsheet for low‑cost high‑fun dates", personalityTrait: ["finance"] },
-      { value: 3, label: "Consent, safety & boundary handbook", personalityTrait: ["wisdom"] },
-      { value: 4, label: "Creative doggy anthology (PG write‑up)", personalityTrait: ["doggy"] },
+      { value: 1, label: "Handbook: Relationship as Employment — case studies", personalityTrait: ["toto"] },
+      { value: 2, label: "Spreadsheet: Bill‑sharing models & stress test", personalityTrait: ["finance"] },
+      { value: 3, label: "Consent & safety playbook (real‑life scripts)", personalityTrait: ["wisdom"] },
+      { value: 4, label: "Coded communication & timing playbook", personalityTrait: ["opuehnology"] },
     ],
   },
 ];
